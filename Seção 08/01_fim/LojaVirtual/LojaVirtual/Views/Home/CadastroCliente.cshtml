@@ -1,0 +1,91 @@
+﻿
+@model LojaVirtual.Models.Cliente
+@{
+    ViewData["Title"] = "CadastroCliente";
+}
+
+<main role="main">
+    <form asp-action="CadastroCliente" asp-controller="Home" method="post">
+        <section class="container" style="margin-top: 50px">
+            <div class="row">
+                <aside class="col-sm-6">
+                    <div id="code_register_1">
+                        <div class="card">
+                            <header class="card-header">
+                                <a asp-controller="Home" asp-action="Login" class="float-right btn btn-outline-primary mt-1">Já tenho uma conta</a>
+                                <h4 class="card-title mt-2">Cadastre-se</h4>
+                            </header>
+                            @if (TempData["MSG_S"] != null)
+                            {
+                                    <p class="alert alert-success"><i class="fa fa-check"></i><b> Blz!</b><br /> @Html.Raw(TempData["MSG_S"])</p>
+                            }
+                            <article class="card-body">
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label asp-for="Nome">Nome completo</label>
+                                        <input type="text" asp-for="Nome" class="form-control" placeholder="">
+                                        <small style="color: red;"><span asp-validation-for="Nome"></span></small>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label asp-for="Nascimento">Data de Nascimento</label>
+                                        <input type="text" asp-for="Nascimento" class="form-control" placeholder="">
+                                        <small style="color: red;"><span asp-validation-for="Nascimento"></span></small>
+                                    </div>
+                                    <div class="col form-group">
+                                        <label asp-for="CPF">CPF</label>
+                                        <input type="text" asp-for="CPF" class="form-control" placeholder="">
+                                        <small style="color: red;"><span asp-validation-for="CPF"></span></small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" asp-for="Sexo" value="M">
+                                        <span class="form-check-label"> Masculino </span>
+                                    </label>
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" asp-for="Sexo" value="F">
+                                        <span class="form-check-label"> Feminino </span>
+                                    </label>
+                                    <small style="color: red;"><br /><span asp-validation-for="Sexo"></span></small>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Telefone">Telefone</label>
+                                    <input type="text" asp-for="Telefone" class="form-control" placeholder="">
+                                    <small style="color: red;"><span asp-validation-for="Telefone"></span></small>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Email">E-mail</label>
+                                    <input type="email" asp-for="Email" class="form-control" placeholder="">
+                                    <small style="color: red;"><span asp-validation-for="Email"></span></small>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label asp-for="Senha">Crie uma senha</label>
+                                        <input class="form-control" type="password" asp-for="Senha">
+                                        <small style="color: red;"><span asp-validation-for="Senha"></span></small>
+                                    </div>
+                                    <div class="col form-group">
+                                        <label>Confirme sua senha</label>
+                                        <input class="form-control" type="password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block"> Cadastrar </button>
+                                </div> <!-- form-group// -->
+                                <small class="text-muted">
+                                    Ao clicar no botão "Cadastrar", você confirma que aceita nossos
+                                    <br />Termos de uso e politica de privacidade.
+                                </small>
+                            </article> <!-- card-body end .// -->
+                            <div class="border-top card-body text-center">Já tem uma conta? <a asp-controller="Home" asp-action="Login">Entrar</a></div>
+                        </div> <!-- card.// -->
+
+                    </div> <!-- code-wrap.// -->
+                </aside>
+            </div>
+        </section>
+    </form>
+</main>
+
