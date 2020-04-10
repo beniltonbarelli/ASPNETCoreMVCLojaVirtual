@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace LojaVirtual.Repositories.Contracts
 {
-    interface IColaboradorRepository
+    public interface IColaboradorRepository
     {
         void Cadastrar(Colaborador colaborador);
 
         void Atualizar(Colaborador colaborador);
+
+        Colaborador Login(string email, string senha);
 
         void Excluir(int id);
 
